@@ -8,6 +8,7 @@ namespace Simulator
 {
     public partial class simulator : Form
     {
+        System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         public simulator()
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace Simulator
         }
         private void Single_Click(object sender, EventArgs e)
         {
+            myTimer.Stop();
             label_random();
         }
 
@@ -44,6 +46,36 @@ namespace Simulator
             label2.BackColor= Color.Transparent;
             label3.BackColor= Color.Transparent;
             label4.BackColor= Color.Transparent;
+        }
+
+        private void Run_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show("Timer interval can not be empty", "Warining");
+            }
+            else
+            {
+                myTimer.Stop();
+                myTimer.Tick += new EventHandler(Callback);
+                myTimer.Enabled = true;
+                //set timer interrval, ms.
+                myTimer.Interval = int.Parse(textBox1.Text)*1000;//1s 
+            }
+        }
+
+        private void Callback(object sender, EventArgs e)
+        {
+            label_random();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
         }
     }
 }
