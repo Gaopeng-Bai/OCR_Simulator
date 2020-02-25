@@ -21,7 +21,7 @@ namespace Monitor_receiver
         public void run()
         {
             //server ip address
-            var ip = IPAddress.Parse("127.0.0.1");
+            var ip = IPAddress.Parse("127.0.0.2");
             serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             serverSocket.Bind(new IPEndPoint(ip, myProt));  //bind ip address and port.
             serverSocket.Listen(10);    //Set up to 10 queued connection requests
