@@ -131,6 +131,7 @@
             this.Name = "simulator";
             this.Text = "Simulator";
             this.Load += new System.EventHandler(this.simulator_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.simulator_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

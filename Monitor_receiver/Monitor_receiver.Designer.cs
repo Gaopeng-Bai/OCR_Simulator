@@ -98,6 +98,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Client";
             this.Text = "OCR_Present";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Client_FormClosing);
+
             this.ResumeLayout(false);
             this.PerformLayout();
 

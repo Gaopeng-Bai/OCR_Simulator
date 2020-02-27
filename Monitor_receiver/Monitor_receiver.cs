@@ -15,13 +15,20 @@ namespace Monitor_receiver
         }
 
         public Client()
-        {   
+        {           
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             label_listen.SetAddCallBack(Add);
             ser = new server(label_listen);
             ser.run();
 
+        }
+
+        
+        private void Client_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+            System.Environment.Exit(0);
         }
     }
 }

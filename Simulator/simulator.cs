@@ -77,5 +77,11 @@ namespace Simulator
                 textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
             }
         }
+
+        private void simulator_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            System.Environment.Exit(0);
+        }
     }
 }
