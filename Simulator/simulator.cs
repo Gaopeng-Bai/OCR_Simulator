@@ -40,14 +40,6 @@ namespace Simulator
             label_random();
         }
 
-        private void simulator_Load(object sender, EventArgs e)
-        {
-            label1.BackColor= Color.Transparent;
-            label2.BackColor= Color.Transparent;
-            label3.BackColor= Color.Transparent;
-            label4.BackColor= Color.Transparent;
-        }
-
         private void Run_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
